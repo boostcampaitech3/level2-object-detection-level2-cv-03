@@ -1,0 +1,61 @@
+---
+name: baseline
+seed: 42
+
+wandb:
+  project: test
+  flag: True
+
+train:
+  flag: train
+  
+  # 학습 대상을 정할 수 있습니다.
+  target: label # label, age, gender, mask,
+
+  model:
+    name: fasterrcnn_resnet50_fpn
+
+  # fold:
+  #   n_splits: 5
+  #   random_state: 1004
+
+  num_epochs: 30
+
+  # augmentation: 
+  #   name: CutoutTransform
+  #   args:
+  #     resize: 512
+  #     cutout: 130
+
+  # 공식 문서에 있는 설정을 더 추가할 수 있습니다
+  data_loader:
+    batch_size: 32
+    shuffle: False
+  # val_data_loader:
+  #   batch_size: 50
+
+  optimizer:
+    type: SGD
+    args:
+      lr: 0.005
+      weight_decay: 0.0005
+      momentum: 0.9
+      # betas: [0.7, 0.999]
+      # amsgrad: true
+
+  loss:
+    name: focal
+    args: {}
+
+  lr_scheduler:
+    type: ReduceLROnPlateau
+    args:
+      mode: min
+
+  log_interval: 20
+
+trainer:
+  annotation: ../dataset/train.json # annotation 경로
+  data_dir: ../dataset/ # data_dir 경로
+  save_dir: ./model_weights
+  

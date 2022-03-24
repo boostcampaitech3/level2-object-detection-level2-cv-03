@@ -1,0 +1,22 @@
+__pycache__/
+.ipynb_checkpoints
+
+# virtualenv
+.venv
+venv/
+ENV/
+
+data/
+model_weights/
+wandb/
+output/
+
+.vscode/
+.idea/
+__MACOSX/
+
+nohup.out
+### level-1에서만 사용하고 아직 level2 반영 안된 파일
+ensemble.py
+kfold.py
+offline_aug.py

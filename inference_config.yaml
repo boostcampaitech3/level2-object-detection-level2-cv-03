@@ -1,0 +1,30 @@
+inference:
+  flag: inference
+
+  model:
+    name: fasterrcnn_resnet50_fpn
+
+  score: loss # loss, f1, acc, epoch5
+  # target_epoch: 29
+
+  # 학습한 모델과 동일한 설정을 사용해야 합니다!
+  # cutout은 진행되지 않습니다!
+  # augmentation:
+  #   name: CutoutTransform
+  #   args:
+  #     resize: 512
+  #     cutout: 130
+
+  # 공식 문서에 있는 설정을 더 추가할 수 있습니다
+  data_loader:
+    batch_size: 8
+    shuffle: False
+    drop_last: False
+
+inferencer:
+  annotation: ../dataset/test.json
+  data_dir: ../dataset
+  model_dir: ./model_weights/baseline5
+  save_dir: ./output
+  score_threshold: 0.05
+
