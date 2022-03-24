@@ -1,16 +1,12 @@
-Issue Template
-Title : [ Head ] contents
+# Convention
+## Issue Template
+**Title** : [ Head ] contents
 
-Body
+**Body**  
+- Experiment  : 
+- Content : 
 
-Experiment :
-
-Content :
-
-Progress
-
-[] A
-
-[] B
-
-[] C
+- Progress
+- [] A
+- [] B
+- [] C
