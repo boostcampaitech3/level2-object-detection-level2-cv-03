@@ -82,11 +82,6 @@ class Inferencer:
 
         model, target_name = load_model(self.model_dir, 11, self.device, config)
         
-        '''if config.TTA.flag == True:
-            print("TTA is applied...")
-            model = tta.ClassificationTTAWrapper(model, TTA_transform)'''
-        
-        # model.to(self.device)
         model.eval()
         test_dataset = CustomTestDataset(self.annotation, self.data_dir)
         test_data_loader = torch.utils.data.DataLoader(
@@ -128,25 +123,3 @@ class Inferencer:
         output_name = self.model_dir.split('/')[-1] + '_' + target_name + '.csv'
         submission.to_csv(os.path.join(self.save_dir, output_name), index=None)
         print(submission.head())
-
-
-        '''
-        preds = []
-        with torch.no_grad():
-            for idx, images in enumerate(loader):
-                images = images.to(self.device)
-                pred = model(images)
-                pred = pred.argmax(dim=-1)
-                preds.extend(pred.cpu().numpy())
-        model_name = self.model_dir.split('/')[-1]
-        output_name = model_name + '_' + target_name + '.csv'
-        if config.TTA.flag == True:
-            try:
-                output_name = "TTA_only_" + config.TTA.transform + "_" + output_name
-            except:
-                output_name = "TTA_combination" + output_name
-
-        info = pd.read_csv(self.csv_path)
-
-        info['ans'] = preds
-        info.to_csv(os.path.join(self.save_dir, output_name), index=False)'''
