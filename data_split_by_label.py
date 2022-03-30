@@ -1,3 +1,14 @@
+"""
+실행시 기존 cv_train_1.json, cv_val_1.json 파일을 major_category, minor_category를 기준으로 나눠
+cv_train_1_major.json
+cv_train_1_minor.json
+cv_valid_1_major.json
+cv_valid_1_minor.json
+의 총 4개의 json 파일을 생성합니다.
+
+하드코딩된 major_class를 변경하시면 분리의 기준이 되는 label을 변경하실 수 있습니다.
+"""
+
 #%% Import Libraries
 import os
 import json
