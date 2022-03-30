@@ -1,14 +1,3 @@
-"""
-실행시 기존 cv_train_1.json, cv_val_1.json 파일을 major_category, minor_category를 기준으로 나눠
-cv_train_1_major.json
-cv_train_1_minor.json
-cv_valid_1_major.json
-cv_valid_1_minor.json
-의 총 4개의 json 파일을 생성합니다.
-
-하드코딩된 major_class를 변경하시면 분리의 기준이 되는 label을 변경하실 수 있습니다.
-"""
-
 #%% Import Libraries
 import os
 import json
@@ -53,6 +42,17 @@ data_train_minor['categories'] = [x for x in data_train['categories'] if x['id']
 
 data_valid_major['categories'] = [x for x in data_valid['categories'] if x['id'] in major_category]
 data_valid_minor['categories'] = [x for x in data_valid['categories'] if x['id'] in minor_category]
+
+# Remove unnecessary image infomations
+img_w_ann_train_major = sorted(list(set([x['image_id'] for x in data_train_major['annotations']])))
+img_w_ann_train_minor = sorted(list(set([x['image_id'] for x in data_train_minor['annotations']])))
+img_w_ann_valid_major = sorted(list(set([x['image_id'] for x in data_valid_major['annotations']])))
+img_w_ann_valid_minor = sorted(list(set([x['image_id'] for x in data_valid_minor['annotations']])))
+
+data_train_major['images'] = [x for x in data_train['images'] if x['id'] in img_w_ann_train_major]
+data_train_minor['images'] = [x for x in data_train['images'] if x['id'] in img_w_ann_train_minor]
+data_valid_major['images'] = [x for x in data_valid['images'] if x['id'] in img_w_ann_valid_major]
+data_valid_minor['images'] = [x for x in data_valid['images'] if x['id'] in img_w_ann_valid_minor]
 
 #%% Save new data
 def save_json(data: dict, file_nm: str, dir_path=data_dir):
