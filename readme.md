@@ -1,11 +1,11 @@
 # 🌏 Object Detection for Recycling Trash
 
-## Main Subject
+## 🎇 Main Subject
 대량 생산, 대량 소비의 시대에서는 필연적으로 “쓰레기 처리”문제가 발생합니다. 분리 수거는 이러한 환경 부담을 줄일 수 있는 대표적인 방법이며, 올바른 방식으로 분리수거를 수행해야 합니다.
 
 해당 프로젝트에서는 사진에서 쓰레기를 detection하는 모델을 만들어 분리수거를 진행하고자 합니다. 특히 10가지로 나뉘는 쓰레기 종류와 위치를 파악하기 위한 모델을 만드는 것에 집중합니다.
 
-## Development Environment
+## 💻 Development Environment
 **개발 언어** : PYTHON (IDE: VSCODE, JUPYTER NOTEBOOK)
 
 **서버**: AI STAGES (GPU: NVIDIA TESLA V100)
@@ -14,7 +14,7 @@
 
 **Library** : mmdetection
 
-## Project Summary
+## 🌿 Project Summary
   - **Data Augmentation**
     - MultiScale, Flip, Blur, Rotate, Brightness, HueSaturation, GaussianNoise, sharpen
   - **TTA**
@@ -44,3 +44,5 @@
 |Swin-T|mmdetection|0.4782|0.4615|
 |Swin-S|mmdetection|0.4713|0.4601|
 |Swin-L|mmdetection|0.5481|0.5393|
+
+## [Wrap Up Report](https://www.notion.so/Wrap-Up-1-dafff80131d34f798be2bef2c3f09585)
