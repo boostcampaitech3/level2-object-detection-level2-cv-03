@@ -1,14 +1,17 @@
 # 🌏 Object Detection for Recycling Trash
+<br/>
 
 ## 👨‍🌾 Team
 * Level 2 CV Team 03 - 비뜨코인
 * 팀 구성원 : 김대근, 박선혁, 강면구, 정재욱, 한현진
 
+<br/>
 
 ## 🎇 Main Subject
 대량 생산, 대량 소비의 시대에서는 필연적으로 “쓰레기 처리”문제가 발생합니다. 분리 수거는 이러한 환경 부담을 줄일 수 있는 대표적인 방법이며, 올바른 방식으로 분리수거를 수행해야 합니다.
 
-해당 프로젝트에서는 사진에서 쓰레기를 detection하는 모델을 만들어 분리수거를 진행하고자 합니다. 특히 10가지로 나뉘는 쓰레기 종류와 위치를 파악하기 위한 모델을 만드는 것에 집중합니다.
+해당 프로젝트에서는 사진에서 쓰레기를 detection하는 모델을 만들어 분리수거를 진행하고자 합니다. 특히 10가지로 나뉘는 쓰레기 종류와 위치를 파악하기 위한 모델을 만드는 것에 집중합니다.  
+<br/>
 
 ## 💻 Development Environment
 **개발 언어** : PYTHON (IDE: VSCODE, JUPYTER NOTEBOOK)
@@ -18,6 +21,8 @@
 **협업 Tool** : git, notion, [wandb](https://wandb.ai/cv-3-bitcoin), [google spreadsheet](https://docs.google.com/spreadsheets/d/1l-sIS-KdCHQUgI3Y1CrjsbkTQA0p5vqaErDRQ_eifCo/edit#gid=0), slack
 
 **Library** : mmdetection
+
+<br/>
 
 ## 🌿 Project Summary
   - **Data Augmentation**
