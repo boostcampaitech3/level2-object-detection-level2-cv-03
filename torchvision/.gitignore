@@ -1,0 +1,18 @@
+__pycache__/
+.ipynb_checkpoints
+
+# virtualenv
+.venv
+venv/
+ENV/
+
+data/
+model_weights/
+wandb/
+output/
+
+.vscode/
+.idea/
+__MACOSX/
+
+nohup.out

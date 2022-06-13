@@ -1,0 +1,63 @@
+---
+name: baseline
+seed: 42
+
+wandb:
+  project: test
+  flag: True
+
+train:
+  flag: train
+
+  # torchvision 기준 원하는 모델 생성후 불러오면 됩니다.
+  model:
+    name: fasterrcnn_resnet50_fpn
+
+  ## fold는 아직 구현되지 않았습니다.
+  # fold:
+  #   n_splits: 5
+  #   random_state: 1004
+
+  num_epochs: 30
+
+  ## augmentation은 아직 구현되지 않았습니다.
+  # augmentation: 
+  #   name: CutoutTransform
+  #   args:
+  #     resize: 512
+  #     cutout: 130
+
+  # 공식 문서에 있는 설정을 더 추가할 수 있습니다
+  data_loader:
+    batch_size: 32
+    shuffle: False
+  # val_data_loader: ## 아직 validation 데이터 나누지 않았습니다.
+  #   batch_size: 50
+
+  optimizer: ## torch.optim 내 원하는 optimizer 선언하면 됩니다.
+    type: SGD
+    args:
+      lr: 0.005
+      weight_decay: 0.0005
+      momentum: 0.9
+      # betas: [0.7, 0.999]
+      # amsgrad: true
+
+
+  ## 현재 loss는 baseline에서 제공한 Averager을 이용하고 있습니다.
+  # loss: 
+  #   name: focal
+  #   args: {}
+
+  ## 아직 lr_scheduler 적용되지 않았습니다.
+  # lr_scheduler:
+  #   type: ReduceLROnPlateau
+  #   args:
+  #     mode: min
+
+
+trainer: ## 해당 부분은 데이터 로드 오류가 뜨지 않는다면, 굳이 건들 필요 없을 것 같습니다.
+  annotation: ../dataset/train.json # annotation 경로
+  data_dir: ../dataset/ # data_dir 경로
+  save_dir: ./model_weights
+  
